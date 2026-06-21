@@ -7,6 +7,7 @@ struct DashboardView: View {
         NavigationStack {
             ScrollView {
                 VStack(spacing: 16) {
+                    CarHeroView()
                     StatusSummaryView()
                     BatteryCard()
                     ChargingCard()
@@ -17,6 +18,16 @@ struct DashboardView: View {
             }
             .navigationTitle(store.name)
         }
+    }
+}
+
+struct CarHeroView: View {
+    var body: some View {
+        Image("Car")
+            .resizable()
+            .scaledToFit()
+            .frame(maxWidth: .infinity)
+            .clipShape(.rect(cornerRadius: 16))
     }
 }
 
