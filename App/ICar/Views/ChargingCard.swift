@@ -67,6 +67,12 @@ struct ChargingCard: View {
         }
         .padding()
         .background(.regularMaterial, in: .rect(cornerRadius: 16))
+        .overlay {
+            if store.isChargingPending {
+                PendingOverlay()
+            }
+        }
+        .allowsHitTesting(!store.isChargingPending)
         .onAppear {
             draftChargeLimit = store.chargeLimitPercent
         }

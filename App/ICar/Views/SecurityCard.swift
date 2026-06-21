@@ -51,6 +51,12 @@ struct SecurityCard: View {
         }
         .padding()
         .background(.regularMaterial, in: .rect(cornerRadius: 16))
+        .overlay {
+            if store.isSecurityPending {
+                PendingOverlay()
+            }
+        }
+        .allowsHitTesting(!store.isSecurityPending)
     }
 }
 

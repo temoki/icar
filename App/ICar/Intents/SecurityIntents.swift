@@ -7,6 +7,9 @@ struct LockVehicleIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
+        VehicleStore.shared.isSecurityPending = true
+        defer { VehicleStore.shared.isSecurityPending = false }
+        try await VehicleStore.simulateRemoteLatency()
         VehicleStore.shared.lock()
         return .result(dialog: "Vehicle locked.")
     }
@@ -19,6 +22,9 @@ struct UnlockVehicleIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
+        VehicleStore.shared.isSecurityPending = true
+        defer { VehicleStore.shared.isSecurityPending = false }
+        try await VehicleStore.simulateRemoteLatency()
         VehicleStore.shared.unlock()
         return .result(dialog: "Vehicle unlocked.")
     }
@@ -31,6 +37,9 @@ struct FindVehicleIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
+        VehicleStore.shared.isSecurityPending = true
+        defer { VehicleStore.shared.isSecurityPending = false }
+        try await VehicleStore.simulateRemoteLatency()
         VehicleStore.shared.triggerFind()
         return .result(dialog: "Honking and flashing lights to help you find the vehicle.")
     }

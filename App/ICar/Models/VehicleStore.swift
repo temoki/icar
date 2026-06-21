@@ -16,6 +16,11 @@ final class VehicleStore {
 
     var rangeKm: Int { batteryPercent * 4 }
 
+    // Transient pending flags — not persisted
+    var isChargingPending: Bool = false
+    var isClimatePending: Bool = false
+    var isSecurityPending: Bool = false
+
     private init() { load() }
 
     func startCharging() { isCharging = true; save() }
@@ -27,6 +32,10 @@ final class VehicleStore {
     func lock() { isLocked = true; save() }
     func unlock() { isLocked = false; save() }
     func triggerFind() {}
+
+    static func simulateRemoteLatency() async throws {
+        try await Task.sleep(for: .seconds(Double.random(in: 0.5...2.0)))
+    }
 
     // MARK: - Persistence
 

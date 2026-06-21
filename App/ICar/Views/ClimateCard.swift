@@ -54,6 +54,12 @@ struct ClimateCard: View {
         }
         .padding()
         .background(.regularMaterial, in: .rect(cornerRadius: 16))
+        .overlay {
+            if store.isClimatePending {
+                PendingOverlay()
+            }
+        }
+        .allowsHitTesting(!store.isClimatePending)
         .onAppear { draftTemp = store.targetTemperatureC }
     }
 }
