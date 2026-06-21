@@ -45,7 +45,7 @@
       "localizations" : {
         "ja" : {
           "stringUnit" : {
-            "state" : "machine_translated",
+            "state" : "translated",
             "value" : "バッテリー"
           }
         }
@@ -307,16 +307,6 @@
         }
       }
     },
-    "Not Charging" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "未充電"
-          }
-        }
-      }
-    },
     "Security" : {
       "localizations" : {
         "ja" : {
@@ -473,26 +463,6 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "車両の車内空調を停止します。"
-          }
-        }
-      }
-    },
-    "Tap to start" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "タップして開始"
-          }
-        }
-      }
-    },
-    "Tap to stop" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "タップして停止"
           }
         }
       }

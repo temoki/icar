@@ -10,7 +10,6 @@ struct DashboardView: View {
                     CarHeroView()
                     StatusSummaryView()
                     BatteryCard()
-                    ChargingCard()
                     ClimateCard()
                     SecurityCard()
                 }
