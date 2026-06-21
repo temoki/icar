@@ -1,16 +1,6 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : ""
-          }
-        }
-      }
-    },
     "%" : {
       "localizations" : {
         "ja" : {
@@ -237,26 +227,6 @@
         }
       }
     },
-    "Departure Time" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "出発時刻"
-          }
-        }
-      }
-    },
-    "Departure time set to %@." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "出発時刻を%@に設定しました。"
-          }
-        }
-      }
-    },
     "Doors are open" : {
       "localizations" : {
         "ja" : {
@@ -397,16 +367,6 @@
         }
       }
     },
-    "Not set" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "未設定"
-          }
-        }
-      }
-    },
     "Security" : {
       "localizations" : {
         "ja" : {
@@ -447,26 +407,6 @@
         }
       }
     },
-    "Set Departure Time" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "出発時刻を設定"
-          }
-        }
-      }
-    },
-    "Set the departure time for smart charging." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "スマート充電の出発時刻を設定します。"
-          }
-        }
-      }
-    },
     "Set the maximum charge level." : {
       "localizations" : {
         "ja" : {
@@ -483,16 +423,6 @@
           "stringUnit" : {
             "state" : "machine_translated",
             "value" : "車内の目標温度を設定します。"
-          }
-        }
-      }
-    },
-    "Set: %@" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "設定済: %@"
           }
         }
       }
