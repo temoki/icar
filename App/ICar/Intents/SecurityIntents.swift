@@ -1,9 +1,9 @@
 import AppIntents
 
 struct LockVehicleIntent: AppIntent {
-    static var title: LocalizedStringResource = "Lock Vehicle"
-    static var description = IntentDescription("Lock the vehicle doors.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Lock Vehicle"
+    static let description = IntentDescription("Lock the vehicle doors.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -16,9 +16,9 @@ struct LockVehicleIntent: AppIntent {
 }
 
 struct UnlockVehicleIntent: AppIntent {
-    static var title: LocalizedStringResource = "Unlock Vehicle"
-    static var description = IntentDescription("Unlock the vehicle doors.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Unlock Vehicle"
+    static let description = IntentDescription("Unlock the vehicle doors.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -31,9 +31,9 @@ struct UnlockVehicleIntent: AppIntent {
 }
 
 struct FindVehicleIntent: AppIntent {
-    static var title: LocalizedStringResource = "Find Vehicle"
-    static var description = IntentDescription("Flash lights and honk to locate the vehicle.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Find Vehicle"
+    static let description = IntentDescription("Flash lights and honk to locate the vehicle.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {

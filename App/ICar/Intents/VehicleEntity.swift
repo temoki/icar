@@ -1,8 +1,8 @@
 import AppIntents
 
 struct VehicleEntity: AppEntity, IndexedEntity {
-    static var typeDisplayRepresentation = TypeDisplayRepresentation(name: "Vehicle")
-    static var defaultQuery = VehicleEntityQuery()
+    static let typeDisplayRepresentation = TypeDisplayRepresentation(name: "Vehicle")
+    static let defaultQuery = VehicleEntityQuery()
 
     let id: String
 

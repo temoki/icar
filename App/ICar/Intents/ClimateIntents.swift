@@ -1,9 +1,9 @@
 import AppIntents
 
 struct StartClimateIntent: AppIntent {
-    static var title: LocalizedStringResource = "Start Climate"
-    static var description = IntentDescription("Start pre-conditioning the vehicle cabin.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Start Climate"
+    static let description = IntentDescription("Start pre-conditioning the vehicle cabin.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -17,9 +17,9 @@ struct StartClimateIntent: AppIntent {
 }
 
 struct StopClimateIntent: AppIntent {
-    static var title: LocalizedStringResource = "Stop Climate"
-    static var description = IntentDescription("Stop the vehicle cabin climate control.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Stop Climate"
+    static let description = IntentDescription("Stop the vehicle cabin climate control.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
@@ -32,9 +32,9 @@ struct StopClimateIntent: AppIntent {
 }
 
 struct SetCabinTemperatureIntent: AppIntent {
-    static var title: LocalizedStringResource = "Set Cabin Temperature"
-    static var description = IntentDescription("Set the target cabin temperature.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Set Cabin Temperature"
+    static let description = IntentDescription("Set the target cabin temperature.")
+    static let supportedModes: IntentModes = .background
 
     @Parameter(title: "Temperature (\u{00B0}C)", inclusiveRange: (16, 30))
     var temperature: Int

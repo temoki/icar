@@ -2,9 +2,9 @@ import AppIntents
 import SwiftUI
 
 struct CheckBatteryIntent: AppIntent {
-    static var title: LocalizedStringResource = "Check Battery"
-    static var description = IntentDescription("Check the vehicle's battery level and range.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Check Battery"
+    static let description = IntentDescription("Check the vehicle's battery level and range.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog & ShowsSnippetView {

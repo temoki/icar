@@ -1,9 +1,9 @@
 import AppIntents
 
 struct StartChargingIntent: AppIntent {
-    static var title: LocalizedStringResource = "Start Charging"
-    static var description = IntentDescription("Start charging the vehicle.")
-    static var openAppWhenRun: Bool = false
+    static let title: LocalizedStringResource = "Start Charging"
+    static let description = IntentDescription("Start charging the vehicle.")
+    static let supportedModes: IntentModes = .background
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
