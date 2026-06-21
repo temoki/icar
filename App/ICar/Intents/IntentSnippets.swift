@@ -16,7 +16,7 @@ struct BatterySnippetView: View {
                     .stroke(batteryColor, style: StrokeStyle(lineWidth: 8, lineCap: .round))
                     .frame(width: 64, height: 64)
                     .rotationEffect(.degrees(-90))
-                Text("\(percent)%")
+                Text(percent.formatted(.percent))
                     .font(.system(size: 13, weight: .semibold))
             }
             VStack(alignment: .leading, spacing: 4) {

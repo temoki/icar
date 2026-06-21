@@ -31,16 +31,6 @@
         }
       }
     },
-    "%lld%%" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "%lld%%"
-          }
-        }
-      }
-    },
     "%lld°C" : {
       "localizations" : {
         "ja" : {
