@@ -3,31 +3,27 @@ import FoundationModels
 
 struct StatusSummaryView: View {
     @Environment(VehicleStore.self) private var store
-    @State private var summary: String = ""
+    @State private var summary: String? = nil
 
     private let model = SystemLanguageModel.default
 
     var body: some View {
         HStack(spacing: 8) {
-            Image(systemName: "sparkles")
-                .foregroundStyle(.yellow)
-                .font(.subheadline)
-            Group {
-                switch model.availability {
-                case .available:
-                    Text(summary.isEmpty ? "Analyzing vehicle status..." : summary)
-                        .task(id: stateKey) {
-                            await generateSummary()
-                        }
-                default:
-                    Text(staticSummary)
-                }
+            if let summary {
+                Image(systemName: "sparkles")
+                    .foregroundStyle(.yellow)
+                    .font(.subheadline)
+                Text(summary)
+                    .font(.subheadline)
+                    .foregroundStyle(.secondary)
             }
-            .font(.subheadline)
-            .foregroundStyle(.secondary)
         }
         .padding(.horizontal)
         .padding(.vertical, 6)
+        .task(id: stateKey) {
+            await generateSummary()
+        }
+
     }
 
     private var stateKey: String {
@@ -39,7 +35,15 @@ struct StatusSummaryView: View {
     }
 
     private func generateSummary() async {
-        let session = LanguageModelSession(instructions: "Summarize the vehicle status in one concise sentence. Be brief.")
+        switch model.availability {
+        case .available:
+            break
+        case .unavailable(let reason):
+            // TODO: Logging
+            return
+        }
+        let languageCode = Locale.current.language.languageCode?.identifier ?? "en"
+        let session = LanguageModelSession(instructions: "Summarize the vehicle status in one concise sentence. Be brief. Response in the language specified by the language code \"\(languageCode)\".")
         let prompt = """
             Battery: \(store.batteryPercent)%, range: \(store.rangeKm) km
             Charging: \(store.isCharging ? "yes" : "no"), limit: \(store.chargeLimitPercent)%
@@ -49,8 +53,9 @@ struct StatusSummaryView: View {
         do {
             let response = try await session.respond(to: prompt)
             summary = response.content
-        } catch {
-            summary = staticSummary
+        } catch let e {
+            // TODO: Logging
+            summary = nil
         }
     }
 }
