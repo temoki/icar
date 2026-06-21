@@ -33,5 +33,5 @@ struct CarHeroView: View {
 
 #Preview {
     DashboardView()
-        .environment(VehicleStore.shared)
+        .environment(VehicleStore())
 }

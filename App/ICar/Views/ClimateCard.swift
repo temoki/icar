@@ -66,6 +66,6 @@ struct ClimateCard: View {
 
 #Preview {
     ClimateCard()
-        .environment(VehicleStore.shared)
+        .environment(VehicleStore())
         .padding()
 }

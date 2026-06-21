@@ -57,6 +57,6 @@ struct BatteryCard: View {
 
 #Preview {
     BatteryCard()
-        .environment(VehicleStore.shared)
+        .environment(VehicleStore())
         .padding()
 }

@@ -54,6 +54,6 @@ struct SecurityCard: View {
 
 #Preview {
     SecurityCard()
-        .environment(VehicleStore.shared)
+        .environment(VehicleStore())
         .padding()
 }

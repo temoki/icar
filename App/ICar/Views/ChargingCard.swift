@@ -81,6 +81,6 @@ struct ChargingCard: View {
 
 #Preview {
     ChargingCard()
-        .environment(VehicleStore.shared)
+        .environment(VehicleStore())
         .padding()
 }

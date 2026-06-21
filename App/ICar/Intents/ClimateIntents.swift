@@ -5,11 +5,13 @@ struct StartClimateIntent: AppIntent {
     static let description = IntentDescription("Start pre-conditioning the vehicle cabin.")
     static let supportedModes: IntentModes = .background
 
+    @Dependency
+    var vehicleStore: VehicleStore
+    
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        let store = VehicleStore.shared
-        await store.startClimate()
-        return .result(dialog: "Climate started at \(store.targetTemperatureC)\u{00B0}C.")
+        await vehicleStore.startClimate()
+        return .result(dialog: "Climate started at \(vehicleStore.targetTemperatureC)\u{00B0}C.")
     }
 }
 
@@ -18,9 +20,12 @@ struct StopClimateIntent: AppIntent {
     static let description = IntentDescription("Stop the vehicle cabin climate control.")
     static let supportedModes: IntentModes = .background
 
+    @Dependency
+    var vehicleStore: VehicleStore
+    
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        await VehicleStore.shared.stopClimate()
+        await vehicleStore.stopClimate()
         return .result(dialog: "Climate turned off.")
     }
 }
@@ -33,6 +38,9 @@ struct SetCabinTemperatureIntent: AppIntent {
     @Parameter(title: "Temperature (\u{00B0}C)", inclusiveRange: (16, 30))
     var temperature: Int
 
+    @Dependency
+    var vehicleStore: VehicleStore
+    
     init() {
         temperature = 24
     }
@@ -43,7 +51,7 @@ struct SetCabinTemperatureIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        await VehicleStore.shared.setTemperature(temperature)
+        await vehicleStore.setTemperature(temperature)
         return .result(dialog: "Cabin temperature set to \(temperature)\u{00B0}C.")
     }
 }

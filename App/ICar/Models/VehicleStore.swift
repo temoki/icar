@@ -4,30 +4,64 @@ import Observation
 @MainActor
 @Observable
 final class VehicleStore {
-    static let shared = VehicleStore()
+    private(set) var batteryPercent: Int
+    private(set) var isCharging: Bool
+    private(set) var chargeLimitPercent: Int
+    private(set) var isClimateOn: Bool
+    private(set) var targetTemperatureC: Int
+    private(set) var isLocked: Bool
 
-    private(set) var name: String = "My iCar"
-    private(set) var batteryPercent: Int = 78
-    private(set) var isCharging: Bool = false
-    private(set) var chargeLimitPercent: Int = 80
-    private(set) var isClimateOn: Bool = false
-    private(set) var targetTemperatureC: Int = 22
-    private(set) var isLocked: Bool = true
-
+    var name: String { "My iCar" }
     var rangeKm: Int { batteryPercent * 4 }
 
     // Transient pending flags — not persisted
-    private(set) var isChargingPending: Bool = false
-    private(set) var isClimatePending: Bool = false
-    private(set) var isSecurityPending: Bool = false
+    private(set) var isChargingPending: Bool
+    private(set) var isClimatePending: Bool
+    private(set) var isSecurityPending: Bool
 
-    private init() { load() }
+    init(userDefaults: UserDefaults) {
+        let snapshot = Self.loadSnapshot(from: userDefaults)
+        self.batteryPercent = snapshot?.batteryPercent ?? 78
+        self.isCharging = snapshot?.isCharging ?? false
+        self.chargeLimitPercent = snapshot?.chargeLimitPercent ?? 80
+        self.isClimateOn = snapshot?.isClimateOn ?? false
+        self.targetTemperatureC = snapshot?.targetTemperatureC ?? 24
+        self.isLocked = snapshot?.isLocked ?? false
+        self.isChargingPending = false
+        self.isClimatePending = false
+        self.isSecurityPending = false
+        self.userDefaults = userDefaults
+    }
+    
+    init(
+        batteryPercent: Int = 78,
+        isCharging: Bool = false,
+        chargeLimitPercent: Int = 80,
+        isClimateOn: Bool = false,
+        targetTemperatureC: Int = 24,
+        isLocked: Bool = true,
+        isChargingPending: Bool = false,
+        isClimatePending: Bool = false,
+        isSecurityPending: Bool = false,
+    ) {
+        self.batteryPercent = batteryPercent
+        self.isCharging = isCharging
+        self.chargeLimitPercent = chargeLimitPercent
+        self.isClimateOn = isClimateOn
+        self.targetTemperatureC = targetTemperatureC
+        self.isLocked = isLocked
+        self.isChargingPending = isChargingPending
+        self.isClimatePending = isClimatePending
+        self.isSecurityPending = isSecurityPending
+        self.userDefaults = nil
+    }
 
     func startCharging() async {
         if isChargingPending {
             return
         }
         isChargingPending = true
+        defer { isChargingPending = false }
         await simulateRemoteLatency()
         isCharging = true
         save()
@@ -38,10 +72,10 @@ final class VehicleStore {
             return
         }
         isChargingPending = true
+        defer { isChargingPending = false }
         await simulateRemoteLatency()
         isCharging = false
         save()
-        isChargingPending = false
     }
 
     func setChargeLimit(_ percent: Int) async {
@@ -49,10 +83,10 @@ final class VehicleStore {
             return
         }
         isChargingPending = true
+        defer { isChargingPending = false }
         await simulateRemoteLatency()
         chargeLimitPercent = min(100, max(20, percent))
         save()
-        isChargingPending = false
     }
 
     func startClimate() async {
@@ -60,10 +94,10 @@ final class VehicleStore {
             return
         }
         isClimatePending = true
+        defer { isClimatePending = false }
         await simulateRemoteLatency()
         isClimateOn = true
         save()
-        isClimatePending = false
     }
 
     func stopClimate() async {
@@ -71,10 +105,10 @@ final class VehicleStore {
             return
         }
         isClimatePending = true
+        defer { isClimatePending = false }
         await simulateRemoteLatency()
         isClimateOn = false
         save()
-        isClimatePending = false
     }
 
     func setTemperature(_ celsius: Int) async {
@@ -82,10 +116,10 @@ final class VehicleStore {
             return
         }
         isClimatePending = true
+        defer { isClimatePending = false }
         await simulateRemoteLatency()
         targetTemperatureC = min(30, max(16, celsius))
         save()
-        isClimatePending = false
     }
 
     func lock() async {
@@ -93,10 +127,10 @@ final class VehicleStore {
             return
         }
         isSecurityPending = true
+        defer { isSecurityPending = false }
         await simulateRemoteLatency()
         isLocked = true
         save()
-        isSecurityPending = false
     }
 
     func unlock() async {
@@ -104,13 +138,15 @@ final class VehicleStore {
             return
         }
         isSecurityPending = true
+        defer { isSecurityPending = false }
         await simulateRemoteLatency()
         isLocked = false
         save()
-        isSecurityPending = false
     }
 
     // MARK: - Persistence
+    
+    private let userDefaults: UserDefaults?
 
     private struct Snapshot: Codable {
         var batteryPercent: Int
@@ -122,28 +158,32 @@ final class VehicleStore {
     }
 
     private static let defaultsKey = "VehicleStore.snapshot"
-
+    
     private func save() {
-        let s = Snapshot(batteryPercent: batteryPercent, isCharging: isCharging,
-                         chargeLimitPercent: chargeLimitPercent,
-                         isClimateOn: isClimateOn, targetTemperatureC: targetTemperatureC,
-                         isLocked: isLocked)
-        if let data = try? JSONEncoder().encode(s) {
-            UserDefaults.standard.set(data, forKey: Self.defaultsKey)
+        if let userDefaults = self.userDefaults {
+            Self.save(store: self, to: userDefaults)
         }
     }
 
-    private func load() {
-        guard
-            let data = UserDefaults.standard.data(forKey: Self.defaultsKey),
-            let s = try? JSONDecoder().decode(Snapshot.self, from: data)
-        else { return }
-        batteryPercent = s.batteryPercent
-        isCharging = s.isCharging
-        chargeLimitPercent = s.chargeLimitPercent
-        isClimateOn = s.isClimateOn
-        targetTemperatureC = s.targetTemperatureC
-        isLocked = s.isLocked
+    private static func save(store: VehicleStore, to userDefaults: UserDefaults) {
+        let snapshot = Snapshot(
+            batteryPercent: store.batteryPercent,
+            isCharging: store.isCharging,
+            chargeLimitPercent: store.chargeLimitPercent,
+            isClimateOn: store.isClimateOn,
+            targetTemperatureC: store.targetTemperatureC,
+            isLocked: store.isLocked
+        )
+        if let data = try? JSONEncoder().encode(snapshot) {
+            userDefaults.set(data, forKey: Self.defaultsKey)
+        }
+    }
+
+    private static func loadSnapshot(from userDefaults: UserDefaults) -> Snapshot? {
+        guard let data = userDefaults.data(forKey: Self.defaultsKey) else {
+            return nil
+        }
+        return try? JSONDecoder().decode(Snapshot.self, from: data)
     }
     
     private func simulateRemoteLatency() async {
