@@ -1,0 +1,712 @@
+{
+  "sourceLanguage" : "en",
+  "strings" : {
+    "" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : ""
+          }
+        }
+      }
+    },
+    "%" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%"
+          }
+        }
+      }
+    },
+    "%lld" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld"
+          }
+        }
+      }
+    },
+    "%lld km" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld km"
+          }
+        }
+      }
+    },
+    "%lld%%" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld%%"
+          }
+        }
+      }
+    },
+    "%lld°C" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "%lld°C"
+          }
+        }
+      }
+    },
+    "Battery" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バッテリー"
+          }
+        }
+      }
+    },
+    "Battery is %lld%%, range approximately %lld km." : {
+      "localizations" : {
+        "en" : {
+          "stringUnit" : {
+            "state" : "new",
+            "value" : "Battery is %1$lld%%, range approximately %2$lld km."
+          }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バッテリー残量%1$lld%%、航続距離約%2$lld kmです。"
+          }
+        }
+      }
+    },
+    "Cabin temperature set to %lld°C." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車内温度を%lld°Cに設定しました。"
+          }
+        }
+      }
+    },
+    "Charge Limit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電上限"
+          }
+        }
+      }
+    },
+    "Charge Limit (%)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電上限 (%)"
+          }
+        }
+      }
+    },
+    "Charge limit set to %lld%%." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電上限を%lld%%に設定しました。"
+          }
+        }
+      }
+    },
+    "Charging" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電中"
+          }
+        }
+      }
+    },
+    "Charging started." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電を開始しました。"
+          }
+        }
+      }
+    },
+    "Charging stopped." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電を停止しました。"
+          }
+        }
+      }
+    },
+    "Check Battery" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "バッテリーを確認"
+          }
+        }
+      }
+    },
+    "Check the vehicle's battery level and range." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両のバッテリー残量と航続距離を確認します。"
+          }
+        }
+      }
+    },
+    "Climate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調"
+          }
+        }
+      }
+    },
+    "Climate Off" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調オフ"
+          }
+        }
+      }
+    },
+    "Climate On" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調オン"
+          }
+        }
+      }
+    },
+    "Climate started at %lld°C." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調を%lld°Cで開始しました。"
+          }
+        }
+      }
+    },
+    "Climate turned off." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調を停止しました。"
+          }
+        }
+      }
+    },
+    "Current: %lld%%" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "現在: %lld%%"
+          }
+        }
+      }
+    },
+    "Departure Time" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "出発時刻"
+          }
+        }
+      }
+    },
+    "Departure time set to %@." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "出発時刻を%@に設定しました。"
+          }
+        }
+      }
+    },
+    "Doors are open" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ドアは解錠されています"
+          }
+        }
+      }
+    },
+    "Doors are secured" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ドアは施錠されています"
+          }
+        }
+      }
+    },
+    "Estimated range" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "推定航続距離"
+          }
+        }
+      }
+    },
+    "Find My Car" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を探す"
+          }
+        }
+      }
+    },
+    "Find Vehicle" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を探す"
+          }
+        }
+      }
+    },
+    "Flash lights and honk to locate the vehicle." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "ライトを点滅させクラクションを鳴らして車両を見つけます。"
+          }
+        }
+      }
+    },
+    "Honking and flashing lights to help you find the vehicle." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "クラクションとライトの点滅で車両を探すお手伝いをします。"
+          }
+        }
+      }
+    },
+    "Lock" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "施錠"
+          }
+        }
+      }
+    },
+    "Lock the vehicle doors." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両のドアを施錠します。"
+          }
+        }
+      }
+    },
+    "Lock Vehicle" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を施錠"
+          }
+        }
+      }
+    },
+    "Locked" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "施錠"
+          }
+        }
+      }
+    },
+    "My iCar" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "マイiCar"
+          }
+        }
+      }
+    },
+    "Not charging" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未充電"
+          }
+        }
+      }
+    },
+    "Not Charging" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未充電"
+          }
+        }
+      }
+    },
+    "Not set" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "未設定"
+          }
+        }
+      }
+    },
+    "Security" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "セキュリティ"
+          }
+        }
+      }
+    },
+    "Set" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定"
+          }
+        }
+      }
+    },
+    "Set Cabin Temperature" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車内温度を設定"
+          }
+        }
+      }
+    },
+    "Set Charge Limit" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電上限を設定"
+          }
+        }
+      }
+    },
+    "Set Departure Time" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "出発時刻を設定"
+          }
+        }
+      }
+    },
+    "Set the departure time for smart charging." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "スマート充電の出発時刻を設定します。"
+          }
+        }
+      }
+    },
+    "Set the maximum charge level." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電上限を設定します。"
+          }
+        }
+      }
+    },
+    "Set the target cabin temperature." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車内の目標温度を設定します。"
+          }
+        }
+      }
+    },
+    "Set: %@" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "設定済: %@"
+          }
+        }
+      }
+    },
+    "Start" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "開始"
+          }
+        }
+      }
+    },
+    "Start Charging" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電を開始"
+          }
+        }
+      }
+    },
+    "Start charging the vehicle." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両の充電を開始します。"
+          }
+        }
+      }
+    },
+    "Start Climate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調を開始"
+          }
+        }
+      }
+    },
+    "Start pre-conditioning the vehicle cabin." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両の車内空調のプレコンディショニングを開始します。"
+          }
+        }
+      }
+    },
+    "Stop" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "停止"
+          }
+        }
+      }
+    },
+    "Stop Charging" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "充電を停止"
+          }
+        }
+      }
+    },
+    "Stop charging the vehicle." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両の充電を停止します。"
+          }
+        }
+      }
+    },
+    "Stop Climate" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "空調を停止"
+          }
+        }
+      }
+    },
+    "Stop the vehicle cabin climate control." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両の車内空調を停止します。"
+          }
+        }
+      }
+    },
+    "Tap to start" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "タップして開始"
+          }
+        }
+      }
+    },
+    "Tap to stop" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "タップして停止"
+          }
+        }
+      }
+    },
+    "Target Temperature" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "目標温度"
+          }
+        }
+      }
+    },
+    "Temperature (°C)" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "温度 (°C)"
+          }
+        }
+      }
+    },
+    "Unlock" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解錠"
+          }
+        }
+      }
+    },
+    "Unlock the vehicle doors." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両のドアを解錠します。"
+          }
+        }
+      }
+    },
+    "Unlock Vehicle" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を解錠"
+          }
+        }
+      }
+    },
+    "Unlocked" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "解錠済み"
+          }
+        }
+      }
+    },
+    "Vehicle" : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両"
+          }
+        }
+      }
+    },
+    "Vehicle locked." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を施錠しました。"
+          }
+        }
+      }
+    },
+    "Vehicle unlocked." : {
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "machine_translated",
+            "value" : "車両を解錠しました。"
+          }
+        }
+      }
+    }
+  },
+  "version" : "1.3"
+}
