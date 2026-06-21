@@ -47,6 +47,7 @@ struct SetChargeLimitIntent: AppIntent {
         defer { VehicleStore.shared.isChargingPending = false }
         try await VehicleStore.simulateRemoteLatency()
         VehicleStore.shared.setChargeLimit(limit)
-        return .result(dialog: "Charge limit set to \(limit)%.")
+        let limitFormatted = (Double(limit) / 100.0).formatted(.percent)
+        return .result(dialog: "Charge limit set to \(limitFormatted).")
     }
 }

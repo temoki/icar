@@ -41,7 +41,7 @@ struct ChargingCard: View {
                     Text("Charge Limit")
                         .font(.subheadline)
                     Spacer()
-                    Text("\(draftChargeLimit)%")
+                    Text(Double(draftChargeLimit) / 100.0, format: .percent)
                         .font(.subheadline.monospacedDigit())
                         .foregroundStyle(.secondary)
                 }
@@ -53,7 +53,7 @@ struct ChargingCard: View {
                     in: 20...100, step: 5
                 )
                 HStack {
-                    Text("Current: \(store.chargeLimitPercent)%")
+                    Text("Current: \((Double(store.chargeLimitPercent) / 100.0).formatted(.percent))")
                         .font(.caption)
                         .foregroundStyle(.secondary)
                     Spacer()

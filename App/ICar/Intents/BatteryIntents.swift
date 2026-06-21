@@ -12,8 +12,9 @@ struct CheckBatteryIntent: AppIntent {
         let percent = store.batteryPercent
         let range = store.rangeKm
         let charging = store.isCharging
+        let percentFormatted = (Double(percent) / 100.0).formatted(.percent)
         return .result(
-            dialog: "Battery is \(percent)%, range approximately \(range) km.",
+            dialog: "Battery is \(percentFormatted), range approximately \(range) km.",
             view: BatterySnippetView(percent: percent, rangeKm: range, isCharging: charging)
         )
     }
