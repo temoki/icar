@@ -23,12 +23,12 @@ struct ClimateCard: View {
                     Button(intent: StopClimateIntent()) {
                         Label("Stop", systemImage: "stop.fill")
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 } else {
                     Button(intent: StartClimateIntent()) {
                         Label("Start", systemImage: "play.fill")
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 }
             }
 
@@ -48,7 +48,7 @@ struct ClimateCard: View {
                         Text("Set")
                             .font(.caption.weight(.semibold))
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }

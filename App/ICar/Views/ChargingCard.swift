@@ -24,12 +24,12 @@ struct ChargingCard: View {
                     Button(intent: StopChargingIntent()) {
                         Label("Stop", systemImage: "bolt.slash.fill")
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 } else {
                     Button(intent: StartChargingIntent()) {
                         Label("Start", systemImage: "bolt.fill")
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 }
             }
 
@@ -61,7 +61,7 @@ struct ChargingCard: View {
                         Text("Set")
                             .font(.caption.weight(.semibold))
                     }
-                    .buttonStyle(.glass)
+                    .buttonStyle(.borderedProminent)
                 }
             }
         }

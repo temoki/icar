@@ -30,14 +30,14 @@ struct SecurityCard: View {
                     Label("Lock", systemImage: "lock.fill")
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.glass)
+                .buttonStyle(.borderedProminent)
                 .disabled(store.isLocked)
 
                 Button(intent: UnlockVehicleIntent()) {
                     Label("Unlock", systemImage: "lock.open.fill")
                         .frame(maxWidth: .infinity)
                 }
-                .buttonStyle(.glass)
+                .buttonStyle(.borderedProminent)
                 .disabled(!store.isLocked)
             }
         }
