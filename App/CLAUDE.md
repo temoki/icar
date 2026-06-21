@@ -31,7 +31,7 @@ There are no unit tests in this project yet.
 
 Every state-changing action — **including taps inside the app** — goes through an `AppIntent`. This is intentional: it ensures Siri/Shortcuts and in-app UI share identical code paths and that the system records donations for suggestions.
 
-- **Single-tap actions** (start/stop charging, lock/unlock, find vehicle, climate on/off): `Button(intent: SomeIntent())` directly.
+- **Single-tap actions** (start/stop charging, lock/unlock, climate on/off): `Button(intent: SomeIntent())` directly.
 - **Value-input actions** (charge limit, cabin temperature, departure time): UI controls (`Slider`, `Stepper`, `DatePicker`) adjust a local `@State` draft value, then a `Button(intent: SetXxxIntent(value: draft))` confirms and executes the intent.
 - Each intent's `perform()` is `@MainActor` and calls `VehicleStore.shared` methods directly.
 
@@ -42,7 +42,7 @@ Every state-changing action — **including taps inside the app** — goes throu
 | `BatteryIntents.swift` | `CheckBatteryIntent` — returns Siri snippet view |
 | `ChargingIntents.swift` | `Start/StopCharging`, `SetChargeLimit`, `SetDepartureTime` |
 | `ClimateIntents.swift` | `Start/StopClimate`, `SetCabinTemperature` |
-| `SecurityIntents.swift` | `Lock/UnlockVehicle`, `FindVehicle` |
+| `SecurityIntents.swift` | `Lock/UnlockVehicle` |
 | `ICarShortcuts.swift` | `AppShortcutsProvider` — 8 shortcuts with Japanese + English Siri phrases |
 | `VehicleEntity.swift` | `AppEntity` + `IndexedEntity` for Spotlight exposure |
 | `IntentSnippets.swift` | `BatterySnippetView` — SwiftUI view shown in Siri after CheckBattery |
@@ -68,5 +68,5 @@ When adding new `Text("...")` literals in SwiftUI views or `LocalizedStringResou
 - **SwiftUI state**: use `@Observable` + `@State`, never `ObservableObject`/`@Published`.
 - **Async in views**: use `.task(id:)` modifier, never `Task {}` inside `onAppear`.
 - **View decomposition**: extract into independent View structs, not `@ViewBuilder` computed properties.
-- **Vehicle data is mocked**: `VehicleStore` holds in-memory state; `triggerFind()` is a no-op. Replacing these with real vehicle API calls is the main extension point.
+- **Vehicle data is mocked**: `VehicleStore` holds in-memory state. Replacing these with real vehicle API calls is the main extension point.
 - **No Assistant Schema**: the app uses custom `AppIntent` (not `@AppIntent(schema:)`) because no Apple-defined schema covers automotive/EV domains.
