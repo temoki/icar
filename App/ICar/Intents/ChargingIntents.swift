@@ -41,23 +41,3 @@ struct SetChargeLimitIntent: AppIntent {
         return .result(dialog: "Charge limit set to \(limit)%.")
     }
 }
-
-struct SetDepartureTimeIntent: AppIntent {
-    static var title: LocalizedStringResource = "Set Departure Time"
-    static var description = IntentDescription("Set the departure time for smart charging.")
-    static var openAppWhenRun: Bool = false
-
-    @Parameter(title: "Departure Time")
-    var departureTime: Date
-
-    init() { departureTime = Calendar.current.date(byAdding: .hour, value: 8, to: .now) ?? .now }
-    init(time: Date) { departureTime = time }
-
-    @MainActor
-    func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.setDeparture(departureTime)
-        let formatter = DateFormatter()
-        formatter.timeStyle = .short
-        return .result(dialog: "Departure time set to \(formatter.string(from: departureTime)).")
-    }
-}

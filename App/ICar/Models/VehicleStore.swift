@@ -10,7 +10,6 @@ final class VehicleStore {
     var batteryPercent: Int = 78
     var isCharging: Bool = false
     var chargeLimitPercent: Int = 80
-    var departureTime: Date? = nil
     var isClimateOn: Bool = false
     var targetTemperatureC: Int = 22
     var isLocked: Bool = true
@@ -22,7 +21,6 @@ final class VehicleStore {
     func startCharging() { isCharging = true; save() }
     func stopCharging() { isCharging = false; save() }
     func setChargeLimit(_ percent: Int) { chargeLimitPercent = min(100, max(20, percent)); save() }
-    func setDeparture(_ time: Date?) { departureTime = time; save() }
     func startClimate() { isClimateOn = true; save() }
     func stopClimate() { isClimateOn = false; save() }
     func setTemperature(_ celsius: Int) { targetTemperatureC = min(30, max(16, celsius)); save() }
@@ -36,7 +34,6 @@ final class VehicleStore {
         var batteryPercent: Int
         var isCharging: Bool
         var chargeLimitPercent: Int
-        var departureTime: Date?
         var isClimateOn: Bool
         var targetTemperatureC: Int
         var isLocked: Bool
@@ -46,7 +43,7 @@ final class VehicleStore {
 
     private func save() {
         let s = Snapshot(batteryPercent: batteryPercent, isCharging: isCharging,
-                         chargeLimitPercent: chargeLimitPercent, departureTime: departureTime,
+                         chargeLimitPercent: chargeLimitPercent,
                          isClimateOn: isClimateOn, targetTemperatureC: targetTemperatureC,
                          isLocked: isLocked)
         if let data = try? JSONEncoder().encode(s) {
@@ -62,7 +59,6 @@ final class VehicleStore {
         batteryPercent = s.batteryPercent
         isCharging = s.isCharging
         chargeLimitPercent = s.chargeLimitPercent
-        departureTime = s.departureTime
         isClimateOn = s.isClimateOn
         targetTemperatureC = s.targetTemperatureC
         isLocked = s.isLocked

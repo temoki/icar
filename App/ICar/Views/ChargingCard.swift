@@ -4,7 +4,6 @@ import AppIntents
 struct ChargingCard: View {
     @Environment(VehicleStore.self) private var store
     @State private var draftChargeLimit: Int = 80
-    @State private var draftDepartureTime: Date = Calendar.current.date(byAdding: .hour, value: 8, to: .now) ?? .now
 
     var body: some View {
         VStack(alignment: .leading, spacing: 14) {
@@ -65,39 +64,11 @@ struct ChargingCard: View {
                     .buttonStyle(.glass)
                 }
             }
-
-            Divider()
-
-            // Departure Time
-            VStack(alignment: .leading, spacing: 6) {
-                Text("Departure Time")
-                    .font(.subheadline)
-                DatePicker("", selection: $draftDepartureTime, displayedComponents: [.hourAndMinute])
-                    .labelsHidden()
-                HStack {
-                    if let t = store.departureTime {
-                        Text("Set: \(t, style: .time)")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    } else {
-                        Text("Not set")
-                            .font(.caption)
-                            .foregroundStyle(.secondary)
-                    }
-                    Spacer()
-                    Button(intent: SetDepartureTimeIntent(time: draftDepartureTime)) {
-                        Text("Set")
-                            .font(.caption.weight(.semibold))
-                    }
-                    .buttonStyle(.glass)
-                }
-            }
         }
         .padding()
         .background(.regularMaterial, in: .rect(cornerRadius: 16))
         .onAppear {
             draftChargeLimit = store.chargeLimitPercent
-            if let t = store.departureTime { draftDepartureTime = t }
         }
     }
 }
