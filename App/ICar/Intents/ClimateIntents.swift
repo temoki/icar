@@ -7,11 +7,8 @@ struct StartClimateIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isClimatePending = true
-        defer { VehicleStore.shared.isClimatePending = false }
-        try await VehicleStore.simulateRemoteLatency()
         let store = VehicleStore.shared
-        store.startClimate()
+        await store.startClimate()
         return .result(dialog: "Climate started at \(store.targetTemperatureC)\u{00B0}C.")
     }
 }
@@ -23,10 +20,7 @@ struct StopClimateIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isClimatePending = true
-        defer { VehicleStore.shared.isClimatePending = false }
-        try await VehicleStore.simulateRemoteLatency()
-        VehicleStore.shared.stopClimate()
+        await VehicleStore.shared.stopClimate()
         return .result(dialog: "Climate turned off.")
     }
 }
@@ -39,15 +33,17 @@ struct SetCabinTemperatureIntent: AppIntent {
     @Parameter(title: "Temperature (\u{00B0}C)", inclusiveRange: (16, 30))
     var temperature: Int
 
-    init() { temperature = 22 }
-    init(temperature: Int) { self.temperature = temperature }
+    init() {
+        temperature = 24
+    }
+
+    init(temperature: Int) {
+        self.temperature = temperature
+    }
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isClimatePending = true
-        defer { VehicleStore.shared.isClimatePending = false }
-        try await VehicleStore.simulateRemoteLatency()
-        VehicleStore.shared.setTemperature(temperature)
+        await VehicleStore.shared.setTemperature(temperature)
         return .result(dialog: "Cabin temperature set to \(temperature)\u{00B0}C.")
     }
 }

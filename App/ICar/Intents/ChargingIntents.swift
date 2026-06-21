@@ -7,10 +7,7 @@ struct StartChargingIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isChargingPending = true
-        defer { VehicleStore.shared.isChargingPending = false }
-        try await VehicleStore.simulateRemoteLatency()
-        VehicleStore.shared.startCharging()
+        await VehicleStore.shared.startCharging()
         return .result(dialog: "Charging started.")
     }
 }
@@ -22,10 +19,7 @@ struct StopChargingIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isChargingPending = true
-        defer { VehicleStore.shared.isChargingPending = false }
-        try await VehicleStore.simulateRemoteLatency()
-        VehicleStore.shared.stopCharging()
+        await VehicleStore.shared.stopCharging()
         return .result(dialog: "Charging stopped.")
     }
 }
@@ -43,10 +37,7 @@ struct SetChargeLimitIntent: AppIntent {
 
     @MainActor
     func perform() async throws -> some IntentResult & ProvidesDialog {
-        VehicleStore.shared.isChargingPending = true
-        defer { VehicleStore.shared.isChargingPending = false }
-        try await VehicleStore.simulateRemoteLatency()
-        VehicleStore.shared.setChargeLimit(limit)
+        await VehicleStore.shared.setChargeLimit(limit)
         let limitFormatted = (Double(limit) / 100.0).formatted(.percent)
         return .result(dialog: "Charge limit set to \(limitFormatted).")
     }

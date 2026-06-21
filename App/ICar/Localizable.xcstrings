@@ -247,46 +247,6 @@
         }
       }
     },
-    "Find My Car" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "車両を探す"
-          }
-        }
-      }
-    },
-    "Find Vehicle" : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "車両を探す"
-          }
-        }
-      }
-    },
-    "Flash lights and honk to locate the vehicle." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "ライトを点滅させクラクションを鳴らして車両を見つけます。"
-          }
-        }
-      }
-    },
-    "Honking and flashing lights to help you find the vehicle." : {
-      "localizations" : {
-        "ja" : {
-          "stringUnit" : {
-            "state" : "machine_translated",
-            "value" : "クラクションとライトの点滅で車両を探すお手伝いをします。"
-          }
-        }
-      }
-    },
     "Lock" : {
       "localizations" : {
         "ja" : {

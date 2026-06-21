@@ -6,35 +6,108 @@ import Observation
 final class VehicleStore {
     static let shared = VehicleStore()
 
-    var name: String = "My iCar"
-    var batteryPercent: Int = 78
-    var isCharging: Bool = false
-    var chargeLimitPercent: Int = 80
-    var isClimateOn: Bool = false
-    var targetTemperatureC: Int = 22
-    var isLocked: Bool = true
+    private(set) var name: String = "My iCar"
+    private(set) var batteryPercent: Int = 78
+    private(set) var isCharging: Bool = false
+    private(set) var chargeLimitPercent: Int = 80
+    private(set) var isClimateOn: Bool = false
+    private(set) var targetTemperatureC: Int = 22
+    private(set) var isLocked: Bool = true
 
     var rangeKm: Int { batteryPercent * 4 }
 
     // Transient pending flags — not persisted
-    var isChargingPending: Bool = false
-    var isClimatePending: Bool = false
-    var isSecurityPending: Bool = false
+    private(set) var isChargingPending: Bool = false
+    private(set) var isClimatePending: Bool = false
+    private(set) var isSecurityPending: Bool = false
 
     private init() { load() }
 
-    func startCharging() { isCharging = true; save() }
-    func stopCharging() { isCharging = false; save() }
-    func setChargeLimit(_ percent: Int) { chargeLimitPercent = min(100, max(20, percent)); save() }
-    func startClimate() { isClimateOn = true; save() }
-    func stopClimate() { isClimateOn = false; save() }
-    func setTemperature(_ celsius: Int) { targetTemperatureC = min(30, max(16, celsius)); save() }
-    func lock() { isLocked = true; save() }
-    func unlock() { isLocked = false; save() }
-    func triggerFind() {}
+    func startCharging() async {
+        if isChargingPending {
+            return
+        }
+        isChargingPending = true
+        await simulateRemoteLatency()
+        isCharging = true
+        save()
+    }
 
-    static func simulateRemoteLatency() async throws {
-        try await Task.sleep(for: .seconds(Double.random(in: 0.5...2.0)))
+    func stopCharging() async {
+        if isChargingPending {
+            return
+        }
+        isChargingPending = true
+        await simulateRemoteLatency()
+        isCharging = false
+        save()
+        isChargingPending = false
+    }
+
+    func setChargeLimit(_ percent: Int) async {
+        if isChargingPending {
+            return
+        }
+        isChargingPending = true
+        await simulateRemoteLatency()
+        chargeLimitPercent = min(100, max(20, percent))
+        save()
+        isChargingPending = false
+    }
+
+    func startClimate() async {
+        if isClimatePending {
+            return
+        }
+        isClimatePending = true
+        await simulateRemoteLatency()
+        isClimateOn = true
+        save()
+        isClimatePending = false
+    }
+
+    func stopClimate() async {
+        if isClimatePending {
+            return
+        }
+        isClimatePending = true
+        await simulateRemoteLatency()
+        isClimateOn = false
+        save()
+        isClimatePending = false
+    }
+
+    func setTemperature(_ celsius: Int) async {
+        if isClimatePending {
+            return
+        }
+        isClimatePending = true
+        await simulateRemoteLatency()
+        targetTemperatureC = min(30, max(16, celsius))
+        save()
+        isClimatePending = false
+    }
+
+    func lock() async {
+        if isSecurityPending {
+            return
+        }
+        isSecurityPending = true
+        await simulateRemoteLatency()
+        isLocked = true
+        save()
+        isSecurityPending = false
+    }
+
+    func unlock() async {
+        if isSecurityPending {
+            return
+        }
+        isSecurityPending = true
+        await simulateRemoteLatency()
+        isLocked = false
+        save()
+        isSecurityPending = false
     }
 
     // MARK: - Persistence
@@ -72,4 +145,9 @@ final class VehicleStore {
         targetTemperatureC = s.targetTemperatureC
         isLocked = s.isLocked
     }
+    
+    private func simulateRemoteLatency() async {
+        try? await Task.sleep(for: .seconds(Double.random(in: 0.5...2.0)))
+    }
+    
 }

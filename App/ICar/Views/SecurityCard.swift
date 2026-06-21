@@ -40,14 +40,6 @@ struct SecurityCard: View {
                 .buttonStyle(.glass)
                 .disabled(!store.isLocked)
             }
-
-            Divider()
-
-            Button(intent: FindVehicleIntent()) {
-                Label("Find My Car", systemImage: "car.top.radiowaves.rear.right")
-                    .frame(maxWidth: .infinity)
-            }
-            .buttonStyle(.glass)
         }
         .padding()
         .background(.regularMaterial, in: .rect(cornerRadius: 16))

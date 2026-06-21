@@ -25,30 +25,6 @@
         }
       }
     },
-    "Find my ${applicationName}" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringSet" : {
-            "state" : "new",
-            "values" : [
-              "Find my ${applicationName}",
-              "${applicationName}を探して"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}を探して",
-              "${applicationName}の場所を教えて",
-              "${applicationName}はどこ"
-            ]
-          }
-        }
-      }
-    },
     "Lock my ${applicationName}" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {

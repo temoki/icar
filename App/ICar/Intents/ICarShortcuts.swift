@@ -66,14 +66,5 @@ struct ICarShortcuts: AppShortcutsProvider {
             shortTitle: "Unlock",
             systemImageName: "lock.open.fill"
         )
-        AppShortcut(
-            intent: FindVehicleIntent(),
-            phrases: [
-                "Find my \(.applicationName)",
-                "\(.applicationName)\u{3092}\u{63A2}\u{3057}\u{3066}"
-            ],
-            shortTitle: "Find Vehicle",
-            systemImageName: "car.top.radiowaves.rear.right"
-        )
     }
 }
