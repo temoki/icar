@@ -58,6 +58,12 @@
             "state" : "new",
             "value" : "Battery is %1$@, range approximately %2$lld km."
           }
+        },
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "バッテリー残量 %1$@、航続距離約 %2$lld kmです。"
+          }
         }
       }
     },
@@ -92,7 +98,14 @@
       }
     },
     "Charge limit set to %@." : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "充電上限を%@に設定しました。"
+          }
+        }
+      }
     },
     "Charging" : {
       "localizations" : {
@@ -195,7 +208,14 @@
       }
     },
     "Current: %@" : {
-
+      "localizations" : {
+        "ja" : {
+          "stringUnit" : {
+            "state" : "translated",
+            "value" : "現在: %@"
+          }
+        }
+      }
     },
     "Doors are open" : {
       "localizations" : {
