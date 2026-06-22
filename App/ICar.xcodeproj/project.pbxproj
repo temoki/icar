@@ -6,6 +6,10 @@
 	objectVersion = 90;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		14BF52EE2FF0B6FB00EDF01D /* Toasts in Frameworks */ = {isa = PBXBuildFile; productRef = 14BF52ED2FF0B6FB00EDF01D /* Toasts */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		000000000000000000000120 /* ICar.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ICar.app; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
@@ -22,6 +26,7 @@
 		000000000000000130000000 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			files = (
+				14BF52EE2FF0B6FB00EDF01D /* Toasts in Frameworks */,
 			);
 		};
 /* End PBXFrameworksBuildPhase section */
@@ -60,6 +65,9 @@
 				000000000000000000000010 /* ICar */,
 			);
 			name = ICar;
+			packageProductDependencies = (
+				14BF52ED2FF0B6FB00EDF01D /* Toasts */,
+			);
 			productName = MyApp;
 			productReference = 000000000000000000000120 /* ICar.app */;
 			productType = "com.apple.product-type.application";
@@ -88,6 +96,9 @@
 			);
 			mainGroup = 000000000000000000000001;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				14BF52EC2FF0B6FB00EDF01D /* XCRemoteSwiftPackageReference "swiftui-toasts" */,
+			);
 			preferredProjectObjectVersion = 90;
 			productRefGroup = 000000000000000000000020 /* Products */;
 			projectDirPath = "";
@@ -351,6 +362,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		14BF52EC2FF0B6FB00EDF01D /* XCRemoteSwiftPackageReference "swiftui-toasts" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sunghyun-k/swiftui-toasts";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 1.1.2;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		14BF52ED2FF0B6FB00EDF01D /* Toasts */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 14BF52EC2FF0B6FB00EDF01D /* XCRemoteSwiftPackageReference "swiftui-toasts" */;
+			productName = Toasts;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 000000000000000000000000 /* Project object */;
 }

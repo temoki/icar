@@ -1,25 +1,14 @@
 {
   "sourceLanguage" : "en",
   "strings" : {
-    "Check ${applicationName} battery" : {
+    "Check my ${applicationName}" : {
       "extractionState" : "extracted_with_value",
       "localizations" : {
         "en" : {
           "stringSet" : {
             "state" : "new",
             "values" : [
-              "Check ${applicationName} battery",
-              "${applicationName}のバッテリーを確認"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}のバッテリーを確認",
-              "${applicationName}のバッテリー残量を確認",
-              "${applicationName}の充電残量を確認"
+              "Check my ${applicationName}"
             ]
           }
         }
@@ -32,115 +21,17 @@
           "stringSet" : {
             "state" : "new",
             "values" : [
-              "Lock my ${applicationName}",
-              "${applicationName}を施錠して"
+              "Lock my ${applicationName}"
             ]
           }
         },
         "ja" : {
           "stringSet" : {
-            "state" : "machine_translated",
+            "state" : "translated",
             "values" : [
               "${applicationName}を施錠して",
               "${applicationName}をロックして",
               "${applicationName}のドアをロックして"
-            ]
-          }
-        }
-      }
-    },
-    "Pre-condition my ${applicationName}" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringSet" : {
-            "state" : "new",
-            "values" : [
-              "Pre-condition my ${applicationName}",
-              "${applicationName}を暑めて",
-              "${applicationName}を冷やして"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}を暖めて",
-              "${applicationName}を冷やして",
-              "${applicationName}の車内を快適にして"
-            ]
-          }
-        }
-      }
-    },
-    "Start ${applicationName} charging" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringSet" : {
-            "state" : "new",
-            "values" : [
-              "Start ${applicationName} charging",
-              "${applicationName}を充電して"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}を充電して",
-              "${applicationName}の充電を開始して",
-              "${applicationName}の充電を始めて"
-            ]
-          }
-        }
-      }
-    },
-    "Stop ${applicationName} charging" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringSet" : {
-            "state" : "new",
-            "values" : [
-              "Stop ${applicationName} charging",
-              "${applicationName}の充電を止めて"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}の充電を止めて",
-              "${applicationName}の充電を停止して",
-              "${applicationName}の充電をやめて"
-            ]
-          }
-        }
-      }
-    },
-    "Stop ${applicationName} climate" : {
-      "extractionState" : "extracted_with_value",
-      "localizations" : {
-        "en" : {
-          "stringSet" : {
-            "state" : "new",
-            "values" : [
-              "Stop ${applicationName} climate",
-              "${applicationName}の空調を切って"
-            ]
-          }
-        },
-        "ja" : {
-          "stringSet" : {
-            "state" : "machine_translated",
-            "values" : [
-              "${applicationName}の空調を切って",
-              "${applicationName}の空調を停止して",
-              "${applicationName}のエアコンを切って"
             ]
           }
         }
@@ -153,14 +44,13 @@
           "stringSet" : {
             "state" : "new",
             "values" : [
-              "Unlock my ${applicationName}",
-              "${applicationName}を解錠して"
+              "Unlock my ${applicationName}"
             ]
           }
         },
         "ja" : {
           "stringSet" : {
-            "state" : "machine_translated",
+            "state" : "translated",
             "values" : [
               "${applicationName}を解錠して",
               "${applicationName}をアンロックして",
